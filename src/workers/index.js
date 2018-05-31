@@ -20,7 +20,10 @@ const getWorker = (file, content, options) => {
     return `require(${InlineWorkerPath})(${JSON.stringify(content)}, ${fallbackWorkerPath})`;
   }
 
-  return `new Worker(${publicWorkerPath})`;
+  return {
+    url : publicWorkerPath,
+    factory : `function() { return new Worker(${publicWorkerPath}) }`
+  };
 };
 
 export default getWorker;

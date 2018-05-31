@@ -48,6 +48,7 @@ import Worker from 'worker-loader!./Worker.js';
 **App.js**
 ```js
 import Worker from './file.worker.js';
+//Worker.url contains the URL of the bundle to be downloaded by the WebWorker API
 
 const worker = new Worker();
 
@@ -61,7 +62,7 @@ worker.addEventListener("message", function (event) {});
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
-|[**`name`**](#name)|`{String}`|`[hash].worker.js`|Set a custom name for the output script| 
+|[**`name`**](#name)|`{String}`|`[hash].worker.js`|Set a custom name for the output script|
 |[**`inline`**](#inline)|`{Boolean}`|`false`|Inline the worker as a BLOB|
 |[**`fallback`**](#fallback)|`{Boolean}`|`false`|Require a fallback for non-worker supporting environments|
 |[**`publicPath`**](#publicPath)|`{String}`|`null`|Override the path from which worker scripts are downloaded|
